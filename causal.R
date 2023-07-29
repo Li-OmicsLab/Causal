@@ -4,10 +4,10 @@ install.packages('mediation')
 sample=sample(nrow(mydata),n/2,replace=F)
 newdata=mydata[sample,]  
 library(mediation)
-medModel<-glm(mediator~exposure+covariators, family=binomial(link = "logit"),
+medModel<-glm(mediator~exposure+covariators, family=binomial(link = "proit"),
               weights = weight,control=list(maxit=1000),
               data=newdata)
-outModel<-glm(outcome~mediator*exposure+covariators,family=binomial(link = "logit"),
+outModel<-glm(outcome~mediator*exposure+covariators,family=binomial(link = "probit"),
               weights = weight,control=list(maxit=1000),
               data=newdata)
 library(mediation)
